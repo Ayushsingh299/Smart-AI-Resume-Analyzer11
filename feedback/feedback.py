@@ -188,7 +188,7 @@ class FeedbackManager:
         st.markdown(f'<div class="rating-container">{"⭐" * rating}</div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # Usability Score
+        ## Usability Score
         st.markdown('<div class="feedback-section">', unsafe_allow_html=True)
         st.markdown('<label class="feedback-label">How easy was it to use our app?</label>', unsafe_allow_html=True)
         usability_score = st.slider("Usability Score", 1, 5, 5, help="Rate the app's ease of use", label_visibility="collapsed")

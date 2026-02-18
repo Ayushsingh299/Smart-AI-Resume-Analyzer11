@@ -1,7 +1,7 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Root Variables */
+/*# Root Variables */
 :root {
     --primary-gradient: linear-gradient(135deg, #00B4DB 0%, #0083B0 100%);
     --secondary-gradient: linear-gradient(135deg, #2D2D2D 0%, #1E1E1E 100%);

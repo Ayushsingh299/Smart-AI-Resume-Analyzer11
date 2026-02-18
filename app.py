@@ -1014,14 +1014,14 @@ class ResumeApp:
         # Profile Section
         st.markdown(f"""
             <div class="profile-section">
-                <img src="{image_base64 if image_base64 else 'https://github.com/AyushSinghCoder.png'}" 
+                <img src="{image_base64 if image_base64 else 'https://github.com/Ayushsingh299.png'}" 
                      alt="Ayush Singh" 
                      class="profile-image"
-                     onerror="this.onerror=null; this.src='https://github.com/AyushSinghCoder.png';">
+                     onerror="this.onerror=null; this.src='https://github.com/Ayushsingh299.png';">
                 <h2 class="profile-name">Ayush Singh </h2>
                 <p class="profile-title">B.Tech Computer Science Student · Aspiring Software Engineer · Future Data Scientist</p>
                 <div class="social-links">
-                    <a href="https://github.com/AyushSinghCoder" class="social-link" target="_blank">
+                    <a href="https://github.com/Ayushsingh299" class="social-link" target="_blank">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/ayush-singh-190163358" class="social-link" target="_blank">

@@ -119,7 +119,7 @@ class DashboardManager:
         start_of_week = now - timedelta(days=now.weekday())
         start_of_month = now.replace(day=1)
         
-        # Fetch metrics for different time periods
+        ## Fetch metrics for different time periods
         metrics = {}
         for period, start_date in [
             ('Today', start_of_day),

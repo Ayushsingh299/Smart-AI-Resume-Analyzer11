@@ -10,7 +10,7 @@ class ResumeAnalyzer:
         """Analyze resume text and return metrics"""
         doc = self.nlp(resume_text)
         
-        # Basic metrics
+        ##Basic metrics
         word_count = len(resume_text.split())
         sentence_count = len(list(doc.sents))
         

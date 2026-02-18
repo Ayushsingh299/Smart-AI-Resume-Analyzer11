@@ -54,7 +54,7 @@ def about_section(content, image_path=None, social_links=None):
             <div class="profile-section">
     """, unsafe_allow_html=True)
     
-    # Profile Image
+    ## Profile Image
     if image_path:
         st.image(image_path, use_column_width=False, width=200)
     
