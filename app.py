@@ -1007,35 +1007,36 @@ class ResumeApp:
         st.markdown("""
             <div class="hero-section">
                 <h1 class="hero-title">About Smart Resume AI</h1>
-                <p class="hero-subtitle">A powerful AI-driven platform for optimizing your resume</p>
+                <p class="hero-subtitle">An intelligent platform designed to analyze, enhance, and optimize resumes using advanced AI technology to help professionals stand out in competitive job markets</p>
             </div>
         """, unsafe_allow_html=True)
         
         # Profile Section
         st.markdown(f"""
             <div class="profile-section">
-                <img src="{image_base64 if image_base64 else 'https://github.com/tabarakmukhtar.png'}" 
-                     alt="Tabarak Mukhtar" 
+                <img src="{image_base64 if image_base64 else 'https://github.com/AyushSinghCoder.png'}" 
+                     alt="Ayush Singh" 
                      class="profile-image"
-                     onerror="this.onerror=null; this.src='https://github.com/tabarakmukhtar.png';">
-                <h2 class="profile-name">Tabarak Mukhtar </h2>
-                <p class="profile-title">Full Stack Developer & DevOps Enthusiast</p>
+                     onerror="this.onerror=null; this.src='https://github.com/AyushSinghCoder.png';">
+                <h2 class="profile-name">Ayush Singh </h2>
+                <p class="profile-title">B.Tech Computer Science Student · Aspiring Software Engineer · Future Data Scientist</p>
                 <div class="social-links">
-                    <a href="https://github.com/tabarakmukhtar" class="social-link" target="_blank">
+                    <a href="https://github.com/AyushSinghCoder" class="social-link" target="_blank">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/tabarakmukhtar/" class="social-link" target="_blank">
+                    <a href="https://www.linkedin.com/in/ayush-singh-190163358" class="social-link" target="_blank">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:tabarakmukhtar159@gmail.com" class="social-link" target="_blank">
+                    <a href="ayush2043singh@gmail.com" class="social-link" target="_blank">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
                 <p class="bio-text">
-                    Hello! I'm a passionate Software Engineer with expertise Full stack Development & DevOps. 
-                    I created Smart Resume AI to revolutionize how job seekers approach their career journey. 
-                    With my background in both software development and AI, I've designed this platform to 
-                    provide intelligent, data-driven insights for resume optimization.
+                   Hello! I am a B.Tech Computer Science student with a strong interest in software development,
+applied AI, and data-driven solutions. I created <b>Smart Resume AI</b> to help job seekers
+turn their resumes into clear, focused, and interview-ready profiles. I enjoy building
+practical products, writing clean and maintainable code, and continuously improving my
+skills to grow into a well-rounded software engineer and data professional.
                 </p>
             </div>
         """, unsafe_allow_html=True)
