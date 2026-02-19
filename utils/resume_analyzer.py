@@ -2,7 +2,7 @@ import re
 
 class ResumeAnalyzer:
     def __init__(self):
-        # Document type indicators
+        ## Document type indicators
         self.document_types = {
             'resume': [
                 'experience', 'education', 'skills', 'work', 'project', 'objective',
