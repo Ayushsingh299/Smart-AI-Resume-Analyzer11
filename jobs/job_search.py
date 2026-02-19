@@ -93,7 +93,7 @@ def render_company_section():
         </style>
     """, unsafe_allow_html=True)
 
-    # Featured Companies
+    # #Featured Companies
     st.markdown("### 🏢 Featured Companies")
     
     tabs = st.tabs(["All Companies", "Tech Giants", "Indian Tech", "Global Corps"])
