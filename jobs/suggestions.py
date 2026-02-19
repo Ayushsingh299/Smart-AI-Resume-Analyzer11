@@ -1,6 +1,6 @@
 """Module containing job-related data and configurations"""
 
-# Job titles and skills suggestions
+## Job titles and skills suggestions
 JOB_SUGGESTIONS = [
     {"text": "Software Engineer", "icon": "💻"},
     {"text": "Full Stack Developer", "icon": "🔧"},
