@@ -31,7 +31,7 @@ class ResumeParser:
             
     def extract_text(self, file):
         file_content = file.read()
-        file.seek(0)  # Reset file pointer
+        file.seek(0)  ## Reset file pointer
         
         if file.name.endswith('.pdf'):
             return self.extract_text_from_pdf(file)
