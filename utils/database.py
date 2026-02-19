@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import datetime
 
-# Create the base class for declarative models
+##Create the base class for declarative models
 Base = declarative_base()
 
 # Define the Resume model

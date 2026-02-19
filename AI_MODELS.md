@@ -4,7 +4,7 @@ Smart Resume Analyzer uses advanced AI models to provide detailed analysis and f
 
 ## Available AI Models
 
-#### 1. Google Gemini
+##### 1. Google Gemini
 
 Google Gemini is a powerful AI model developed by Google that offers state-of-the-art natural language processing capabilities. In Smart Resume Analyzer, Gemini is used to:
 
