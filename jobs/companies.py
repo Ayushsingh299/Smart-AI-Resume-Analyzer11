@@ -1,3 +1,4 @@
+
 """Company data and market insights for job search"""
 
 FEATURED_COMPANIES = {
