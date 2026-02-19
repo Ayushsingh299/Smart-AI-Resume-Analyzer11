@@ -23,7 +23,7 @@ class ResumeBuilder:
         try:
             print(f"Starting resume generation with template: {data['template']}")
             
-            # Create a new document
+            ## Create a new document
             doc = Document()
             
             # Select and apply template
