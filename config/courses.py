@@ -1,4 +1,4 @@
-# Course recommendations organized by job categories
+## Course recommendations organized by job categories
 COURSES_BY_CATEGORY = {
     "Software Development and Engineering": {
         "Frontend Developer": [
