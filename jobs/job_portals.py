@@ -77,7 +77,7 @@ class JobPortal:
             return "", "0", "0", "entry"
         
         try:
-            # Handle dictionary input
+            ##Handle dictionary input
             if isinstance(experience, dict):
                 exp_id = experience.get('id', 'all')
                 if exp_id == 'all':
