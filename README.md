@@ -90,7 +90,7 @@ So your resume moves from “filtered out” to “shortlisted.”
 ![WhatsApp Image 2026-02-13 at 13 59 27](https://github.com/user-attachments/assets/1eb279d8-39f2-4817-8acd-acfc377ad36e)
 
 ## <img src="https://github.com/user-attachments/assets/e5ac1371-6ac4-48b6-b95c-5ef9afaf1353" width="30"> **Live Demo**  
-👨‍💻 Try it Now: [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smart-ai-resume-analyzer.streamlit.ap)  
+👨‍💻 Try it Now: [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)  
 ### SCAN QR(USER FRIENDLY):
 
 <img width="450" height="450" alt="qrcode_smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x streamlit app" src="https://github.com/user-attachments/assets/bdf16174-d4c3-49c2-b8d6-9bc2f7620196" />
