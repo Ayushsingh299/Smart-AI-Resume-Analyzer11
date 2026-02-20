@@ -100,7 +100,7 @@ So your resume moves from “filtered out” to “shortlisted.”
 
 ## 🔗 Helpful Links
 
-- **Live App:** https://smart-ai-resume-analyzegit-gvvsqhhd8h8wthcdpyx3ft.streamlit.app/    
+- **Live App:** https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/   
 - **Issue Tracker:** https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer/issues  
 - **Pull Requests:** https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer/pulls  
 
