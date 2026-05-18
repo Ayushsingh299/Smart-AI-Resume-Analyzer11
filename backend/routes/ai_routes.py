@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, File, Form, UploadFile
 from fastapi.responses import Response
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
-from backend.ai_engine.rewriter import ResumeRewriter
-from backend.ai_engine.matcher import SemanticMatcher
-from backend.ai_engine.ats_scorer import ATSScorer
-from backend.services.pdf_generator import ProfessionalResumeGenerator
+from ai_engine.rewriter import ResumeRewriter
+from ai_engine.matcher import SemanticMatcher
+from ai_engine.ats_scorer import ATSScorer
+from services.pdf_generator import ProfessionalResumeGenerator
 import io
 import PyPDF2
 

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import ai_routes
+from routes import ai_routes
 
 app = FastAPI(
     title="Smart AI Resume Analyzer API",
