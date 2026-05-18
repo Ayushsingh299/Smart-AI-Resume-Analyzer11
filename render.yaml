@@ -1,11 +1,9 @@
-services:
-  # 1. PostgreSQL Database
-  - type: postgres
-    name: resume-db
+databases:
+  - name: resume-db
     plan: free
     region: ohio
 
-  # 2. FastAPI Backend
+services:
   - type: web
     name: smart-resume-backend
     env: python
