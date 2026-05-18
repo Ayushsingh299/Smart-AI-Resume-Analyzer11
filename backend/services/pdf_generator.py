@@ -70,7 +70,7 @@ class ProfessionalResumeGenerator:
         ))
 
         self.styles.add(ParagraphStyle(
-            name='Bullet',
+            name='CustomBullet',
             parent=self.styles['Normal'],
             fontName='Helvetica',
             fontSize=10,
@@ -128,7 +128,7 @@ class ProfessionalResumeGenerator:
                 # Bullet points
                 for bullet in exp.get('responsibilities', []):
                     # Using standard bullet character
-                    story.append(Paragraph(f"• {bullet}", self.styles['Bullet']))
+                    story.append(Paragraph(f"• {bullet}", self.styles['CustomBullet']))
                 
                 story.append(Spacer(1, 8))
 
