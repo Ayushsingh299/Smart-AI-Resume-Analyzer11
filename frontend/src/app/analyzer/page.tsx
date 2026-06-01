@@ -27,13 +27,19 @@ export default function Analyzer() {
 
     try {
       // Calling the actual FastAPI endpoint
-      const response = await fetch('http://localhost:8000/api/ai/upload-and-score', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/ai/upload-and-score`, {
         method: 'POST',
         body: formData,
       });
       
       if (!response.ok) {
-        throw new Error('Failed to analyze resume. Make sure backend is running.');
+        let errorMsg = 'Failed to analyze resume.';
+        try {
+          const errData = await response.json();
+          errorMsg = errData.detail || errorMsg;
+        } catch(e) {}
+        throw new Error(errorMsg);
       }
       
       const data = await response.json();

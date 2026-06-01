@@ -90,7 +90,13 @@ async def upload_and_score_resume(
         
         resume_text = ""
         for page in pdf_reader.pages:
-            resume_text += page.extract_text() + "\n"
+            extracted = page.extract_text()
+            if extracted:
+                resume_text += extracted + "\n"
+        
+        if not resume_text.strip():
+            raise HTTPException(status_code=400, detail="Could not extract text from this PDF. It may be an image-based PDF or have restricted permissions.")
+            
             
         results = ats_scorer.analyze_resume(resume_text, job_description)
         return results
