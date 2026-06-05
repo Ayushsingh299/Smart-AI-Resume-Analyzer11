@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 export default function Analyzer() {
   const [file, setFile] = useState<File | null>(null);
@@ -52,14 +53,10 @@ export default function Analyzer() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white relative">
-      <nav className="p-6 border-b border-white/10">
-        <Link href="/" className="text-emerald-400 font-semibold flex items-center gap-2 hover:text-emerald-300">
-          ← Back to Home
-        </Link>
-      </nav>
+    <div className="min-h-screen bg-slate-950 text-white relative flex flex-col">
+      <Navbar />
 
-      <main className="container mx-auto px-6 py-12 max-w-5xl">
+      <main className="container mx-auto px-6 py-12 max-w-5xl flex-1">
         <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
           ATS Resume Analyzer
         </h1>
