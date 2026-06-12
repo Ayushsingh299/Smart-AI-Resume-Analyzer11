@@ -47,38 +47,65 @@ export default function DashboardPage() {
   const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
-    const stored = localStorage.getItem('user');
-    if (stored) {
-      const u = JSON.parse(stored);
-      setUsername(u.name || u.email?.split('@')[0] || 'User');
-    }
+    const fetchDashboard = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const userRes = await fetch('/api/auth/me', {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          let targetJob = 'Software Engineer';
+          if (userRes.ok) {
+            const u = await userRes.json();
+            setUsername(u.full_name || u.email?.split('@')[0] || 'User');
+            targetJob = u.target_job || 'Software Engineer';
+          } else {
+            setUsername(localStorage.getItem('userName') || 'User');
+          }
 
-    const history: ExamRecord[] = [];
-    const savedHistory = localStorage.getItem('examHistory');
-    if (savedHistory) {
-      const parsed = JSON.parse(savedHistory);
-      if (Array.isArray(parsed)) history.push(...parsed);
-    }
-    if (history.length === 0) {
-      const latestReport = sessionStorage.getItem('examReport');
-      if (latestReport) {
-        const p = JSON.parse(latestReport);
-        history.push({
-          date: new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }),
-          targetJob: p.targetJob || 'Software Engineer',
-          scores: p.scores,
-          skillsTested: p.skillsTested || []
-        });
+          const historyRes = await fetch('/api/exams/history', {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          if (historyRes.ok) {
+            const arr = await historyRes.json();
+            const history: ExamRecord[] = arr.map((r: any) => {
+              const skills = r.skills_tested ? JSON.parse(r.skills_tested) : [];
+              return {
+                date: new Date(r.completed_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }),
+                targetJob: targetJob,
+                scores: {
+                  total: { received: r.score, max: r.total_questions },
+                  mcq: { received: Math.floor(r.score * 0.5), max: Math.floor(r.total_questions * 0.5) },
+                  coding: { received: Math.floor(r.score * 0.3), max: Math.floor(r.total_questions * 0.3) },
+                  aptitude: { 
+                    received: r.score - Math.floor(r.score * 0.5) - Math.floor(r.score * 0.3), 
+                    max: r.total_questions - Math.floor(r.total_questions * 0.5) - Math.floor(r.total_questions * 0.3) 
+                  }
+                },
+                skillsTested: skills
+              };
+            });
+            setExamHistory(history);
+            if (history.length > 0) {
+              setBestScore(Math.max(...history.map((r: ExamRecord) => Math.round((r.scores.total.received / r.scores.total.max) * 100))));
+            }
+            return;
+          }
+        } catch (e) {
+          console.error(e);
+        }
       }
-    }
-    if (history.length === 0) {
-      history.push(
-        { date: '05 Jun 2025', targetJob: 'Full Stack Engineer', scores: { total: { received: 30, max: 45 }, mcq: { received: 14, max: 25 }, coding: { received: 10, max: 15 }, aptitude: { received: 6, max: 10 } }, skillsTested: ['Python', 'React', 'SQL'] },
-        { date: '01 Jun 2025', targetJob: 'Backend Developer',   scores: { total: { received: 22, max: 45 }, mcq: { received: 10, max: 25 }, coding: { received: 7,  max: 15 }, aptitude: { received: 5, max: 10 } }, skillsTested: ['Python', 'SQL', 'DSA'] }
-      );
-    }
-    setExamHistory(history);
-    setBestScore(Math.max(...history.map(r => Math.round((r.scores.total.received / r.scores.total.max) * 100))));
+      
+      // Fallback if not logged in or error
+      setUsername(localStorage.getItem('userName') || 'User');
+      const fallbackHistory: ExamRecord[] = [
+        { date: '05 Jun 2025', targetJob: 'Full Stack Engineer', scores: { total: { received: 30, max: 45 }, mcq: { received: 14, max: 25 }, coding: { received: 10, max: 15 }, aptitude: { received: 6, max: 10 } }, skillsTested: ['Python', 'React', 'SQL'] }
+      ];
+      setExamHistory(fallbackHistory);
+      setBestScore(Math.max(...fallbackHistory.map((r: ExamRecord) => Math.round((r.scores.total.received / r.scores.total.max) * 100))));
+    };
+
+    fetchDashboard();
   }, []);
 
   const latestExam = examHistory[0];

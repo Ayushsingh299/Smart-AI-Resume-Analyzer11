@@ -22,7 +22,7 @@ export default function LoginPage() {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setSuccess('');
@@ -44,21 +44,56 @@ export default function LoginPage() {
 
     setLoading(true);
     
-    setTimeout(() => {
+    try {
+      const endpoint = activeTab === 'login' ? '/api/auth/login' : '/api/auth/register';
+      const body = activeTab === 'login' 
+        ? new URLSearchParams({ username: email, password: password }).toString()
+        : JSON.stringify({ email, password, full_name: name });
+      
+      const headers = activeTab === 'login'
+        ? { 'Content-Type': 'application/x-www-form-urlencoded' }
+        : { 'Content-Type': 'application/json' };
+
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers,
+        body
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.detail || 'Authentication failed');
+      }
+
+      const data = await res.json();
+      
+      if (activeTab === 'login') {
+        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        const userRes = await fetch('/api/auth/me', {
+          headers: { 'Authorization': `Bearer ${data.access_token}` }
+        });
+        if (userRes.ok) {
+          const userData = await userRes.json();
+          localStorage.setItem('userEmail', userData.email);
+          localStorage.setItem('userName', userData.full_name);
+        }
+        
+        setSuccess('Successfully logged in!');
+        window.dispatchEvent(new Event('storage'));
+        setTimeout(() => {
+          router.push('/');
+        }, 1000);
+      } else {
+        setSuccess('Account registered successfully! Please sign in.');
+        setActiveTab('login');
+      }
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
       setLoading(false);
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userEmail', email);
-      localStorage.setItem('userName', activeTab === 'signup' ? name : email.split('@')[0]);
-      
-      setSuccess(activeTab === 'login' ? 'Successfully logged in!' : 'Account registered successfully!');
-      
-      // Dispatch storage event so navbar updates instantly
-      window.dispatchEvent(new Event('storage'));
-      
-      setTimeout(() => {
-        router.push('/');
-      }, 1000);
-    }, 1200);
+    }
   };
 
   return (

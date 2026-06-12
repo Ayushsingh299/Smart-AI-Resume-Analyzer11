@@ -194,7 +194,7 @@ export default function ExamSessionPage() {
   };
 
   // Compile final scores and submit to results
-  const finishAssessment = () => {
+  const finishAssessment = async () => {
     // 1. Calculate MCQ score
     let scoreMCQ = 0;
     let maxMCQ = 0;
@@ -268,7 +268,7 @@ export default function ExamSessionPage() {
     const totalMarksReceived = scoreMCQ + scoreCoding + scoreAptitude;
     const totalMaxMarks = maxMCQ + maxCoding + maxAptitude;
 
-    // Save final report object
+    // Save final report object locally for the results page
     const finalReport = {
       targetJob,
       skillsTested: selectedSkills,
@@ -284,8 +284,29 @@ export default function ExamSessionPage() {
         aptitude: aptitudeResultList
       }
     };
-
     sessionStorage.setItem('examReport', JSON.stringify(finalReport));
+
+    // Submit the overall score to the backend history database
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        await fetch('/api/exams/submit', {
+          method: 'POST',
+          headers: { 
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            score: totalMarksReceived,
+            total_questions: totalMaxMarks,
+            skills_tested: JSON.stringify(selectedSkills)
+          })
+        });
+      } catch (err) {
+        console.error("Failed to submit score:", err);
+      }
+    }
+
     router.push('/exam/results');
   };
 
