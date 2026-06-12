@@ -32,30 +32,44 @@ export default function ProfilePage() {
   const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
-    const stored = localStorage.getItem('user');
-    if (stored) {
-      const u = JSON.parse(stored);
-      setProfile({
-        name: u.name || '',
-        email: u.email || '',
-        targetJob: u.targetJob || 'Software Engineer',
-        bio: u.bio || '',
-        skills: u.skills || ['Python', 'React', 'SQL']
-      });
-    }
+    const fetchProfile = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
 
-    const history = localStorage.getItem('examHistory');
-    if (history) {
-      const arr = JSON.parse(history);
-      if (Array.isArray(arr)) {
-        setExamCount(arr.length);
-        const best = Math.max(...arr.map((r: any) => Math.round((r.scores.total.received / r.scores.total.max) * 100)));
-        setBestScore(best);
+      try {
+        const userRes = await fetch('/api/auth/me', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (userRes.ok) {
+          const u = await userRes.json();
+          setProfile({
+            name: u.full_name || '',
+            email: u.email || '',
+            targetJob: u.target_job || 'Software Engineer',
+            bio: u.bio || '',
+            skills: ['Python', 'React', 'SQL'] // Mocked for now until skill profile is added
+          });
+        }
+
+        const historyRes = await fetch('/api/exams/history', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (historyRes.ok) {
+          const arr = await historyRes.json();
+          setExamCount(arr.length);
+          if (arr.length > 0) {
+            const best = Math.max(...arr.map((r: any) => Math.round((r.score / r.total_questions) * 100)));
+            setBestScore(best);
+          } else {
+            setBestScore(0);
+          }
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } else {
-      setExamCount(2);
-      setBestScore(67);
-    }
+    };
+
+    fetchProfile();
   }, []);
 
   const toggleSkill = (skill: string) => {
@@ -67,18 +81,42 @@ export default function ProfilePage() {
     }));
   };
 
-  const handleSave = () => {
-    const stored = localStorage.getItem('user');
-    const existing = stored ? JSON.parse(stored) : {};
-    const updated = { ...existing, ...profile };
-    localStorage.setItem('user', JSON.stringify(updated));
-    setIsEditing(false);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2500);
+  const handleSave = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const res = await fetch('/api/users/profile', {
+        method: 'PUT',
+        headers: { 
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          full_name: profile.name,
+          target_job: profile.targetJob,
+          bio: profile.bio
+        })
+      });
+      
+      if (res.ok) {
+        setIsEditing(false);
+        setSaved(true);
+        setTimeout(() => setSaved(false), 2500);
+        localStorage.setItem('userName', profile.name);
+        window.dispatchEvent(new Event('storage'));
+      }
+    } catch(e) {
+      console.error(e);
+    }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
+    window.dispatchEvent(new Event('storage'));
     window.location.href = '/login';
   };
 
