@@ -321,6 +321,163 @@ export const MCQ_QUESTIONS: MCQQuestion[] = [
     skill: 'DevOps',
     marks: 2,
     explanation: "A Kubernetes Service defines a logical set of Pods and a policy by which to access them over the network."
+  },
+  // TYPESCRIPT
+  {
+    id: "m21",
+    question: "In TypeScript, what is the key difference between `type` and `interface`?",
+    options: [
+      "They are completely identical in all aspects.",
+      "`interface` supports declaration merging; `type` aliases do not.",
+      "`type` can extend other types but `interface` cannot.",
+      "`interface` is only for object types; `type` is only for primitives.",
+      "`type` supports class implementation; `interface` does not."
+    ],
+    correctAnswer: 1,
+    difficulty: 'medium',
+    skill: 'TypeScript',
+    marks: 2,
+    explanation: "A key difference is that `interface` supports declaration merging (multiple declarations with the same name are merged), while `type` aliases do not support this."
+  },
+  {
+    id: "m22",
+    question: "What does the TypeScript utility type `Partial<T>` do?",
+    options: [
+      "Makes all properties of T required.",
+      "Makes all properties of T readonly.",
+      "Makes all properties of T optional.",
+      "Picks a subset of properties from T.",
+      "Excludes null from all properties of T."
+    ],
+    correctAnswer: 2,
+    difficulty: 'easy',
+    skill: 'TypeScript',
+    marks: 1,
+    explanation: "`Partial<T>` constructs a type with all properties of T set to optional, useful for update/patch operations where not all fields are required."
+  },
+  {
+    id: "m23",
+    question: "What is a TypeScript 'discriminated union' (tagged union)?",
+    options: [
+      "A union type that can only contain primitive values.",
+      "A pattern where union members share a common literal type property enabling type narrowing.",
+      "A type that excludes null and undefined from its members.",
+      "A union that can only have two possible types.",
+      "A runtime feature to check types automatically."
+    ],
+    correctAnswer: 1,
+    difficulty: 'hard',
+    skill: 'TypeScript',
+    marks: 3,
+    explanation: "Discriminated unions use a common 'discriminant' literal property (e.g., `kind: 'circle' | 'square'`) so TypeScript can narrow the type within conditional branches."
+  },
+  // JAVA
+  {
+    id: "m24",
+    question: "In Java, what is the difference between `==` and `.equals()` when comparing String objects?",
+    options: [
+      "There is no difference; both compare by value.",
+      "`==` compares object reference (memory address); `.equals()` compares content (value).",
+      "`==` compares content; `.equals()` compares memory address.",
+      "`.equals()` only works with primitive types.",
+      "`==` is deprecated in modern Java."
+    ],
+    correctAnswer: 1,
+    difficulty: 'easy',
+    skill: 'Java',
+    marks: 1,
+    explanation: "`==` checks if two references point to the same object in memory. `.equals()` checks logical equality by comparing the actual string content character-by-character."
+  },
+  {
+    id: "m25",
+    question: "What is the purpose of the `synchronized` keyword in Java?",
+    options: [
+      "To make a method run asynchronously in a background thread.",
+      "To ensure only one thread executes a block of code at a time, preventing race conditions.",
+      "To connect to a synchronized database connection pool.",
+      "To import external libraries at compile time.",
+      "To merge multiple threads into a single execution path."
+    ],
+    correctAnswer: 1,
+    difficulty: 'medium',
+    skill: 'Java',
+    marks: 2,
+    explanation: "`synchronized` provides mutual exclusion. A synchronized method/block can only be executed by one thread at a time, preventing concurrent modification and data corruption."
+  },
+  {
+    id: "m26",
+    question: "Which Java collection interface does NOT allow duplicate elements?",
+    options: ["List", "Queue", "Deque", "Set", "LinkedList"],
+    correctAnswer: 3,
+    difficulty: 'easy',
+    skill: 'Java',
+    marks: 1,
+    explanation: "The `Set` interface in Java does not allow duplicate elements. Implementations like `HashSet` and `TreeSet` enforce uniqueness automatically."
+  },
+  // SYSTEM DESIGN
+  {
+    id: "m27",
+    question: "What is the primary purpose of a Content Delivery Network (CDN)?",
+    options: [
+      "To serve as the main application database.",
+      "To run backend logic closer to the user.",
+      "To cache and deliver static assets from geographically distributed edge servers near users, reducing latency.",
+      "To manage user authentication tokens.",
+      "To compress and encrypt API requests."
+    ],
+    correctAnswer: 2,
+    difficulty: 'easy',
+    skill: 'System Design',
+    marks: 1,
+    explanation: "A CDN caches static content (images, CSS, JS, videos) on edge servers distributed globally. Users download assets from the nearest edge node, dramatically reducing load times and origin server load."
+  },
+  {
+    id: "m28",
+    question: "What is the 'CAP Theorem' in distributed systems?",
+    options: [
+      "A rule: Consistency, Availability, and Partition tolerance cannot all be simultaneously guaranteed.",
+      "A formula for calculating server CPU, memory, and processing capacity.",
+      "A microservices pattern enforcing cache, API, and persistence layers.",
+      "A security protocol combining Cryptography, Authentication, and Permissions.",
+      "The maximum nodes a distributed cluster can support."
+    ],
+    correctAnswer: 0,
+    difficulty: 'medium',
+    skill: 'System Design',
+    marks: 2,
+    explanation: "CAP theorem states a distributed system can only guarantee two of three: Consistency (same data across nodes), Availability (always responds), and Partition Tolerance (works through network failures)."
+  },
+  {
+    id: "m29",
+    question: "What is 'horizontal scaling' vs 'vertical scaling'?",
+    options: [
+      "Horizontal scaling increases CPU/RAM of a single server; vertical adds more servers.",
+      "Horizontal scaling adds more servers to distribute load; vertical scaling upgrades the existing server hardware.",
+      "They are the same concept with different names.",
+      "Horizontal applies to databases only; vertical applies to web servers only.",
+      "Horizontal reduces server count; vertical increases them."
+    ],
+    correctAnswer: 1,
+    difficulty: 'easy',
+    skill: 'System Design',
+    marks: 1,
+    explanation: "Horizontal scaling (scale-out) adds more machine instances. Vertical scaling (scale-up) adds more resources (CPU, RAM, disk) to a single existing machine."
+  },
+  {
+    id: "m30",
+    question: "In a microservices architecture, what is an 'API Gateway' responsible for?",
+    options: [
+      "Directly storing all API responses in a shared relational database.",
+      "Serving as the single entry point routing client requests to services, handling auth, rate limiting, and load balancing.",
+      "Compiling and deploying microservice code automatically.",
+      "Replacing all internal service-to-service communication.",
+      "Providing a shared SQL database for all microservices."
+    ],
+    correctAnswer: 1,
+    difficulty: 'medium',
+    skill: 'System Design',
+    marks: 2,
+    explanation: "An API Gateway acts as the unified entry point for all client requests. It handles cross-cutting concerns: authentication, rate limiting, logging, request routing, and load balancing across backend services."
   }
 ];
 

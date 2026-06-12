@@ -14,7 +14,13 @@ export default function ExamPage() {
     'SQL': true,
     'DSA': true,
     'ML & AI': false,
-    'DevOps': false
+    'DevOps': false,
+    'TypeScript': false,
+    'Java': false,
+    'System Design': false,
+    'Cloud': false,
+    'Node.js': false,
+    'Next.js': false
   });
 
   const skillsList = Object.keys(selectedSkills);
