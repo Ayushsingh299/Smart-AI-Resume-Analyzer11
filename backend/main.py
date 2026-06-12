@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import ai_routes
+from routes import ai_routes, auth_routes, user_routes, exam_routes
+from database import engine
+import models
 
+# Initialize database schema
+models.Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title="Smart AI Resume Analyzer API",
     description="Backend API for Resume Analysis, Rewriting, and Scoring",
@@ -18,6 +22,9 @@ app.add_middleware(
 )
 
 app.include_router(ai_routes.router, prefix="/api/ai", tags=["AI Engine"])
+app.include_router(auth_routes.router)
+app.include_router(user_routes.router)
+app.include_router(exam_routes.router)
 
 @app.get("/")
 def read_root():

@@ -17,3 +17,4 @@ python-dotenv
 PyPDF2
 python-docx
 reportlab
+email-validator
