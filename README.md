@@ -1,13 +1,13 @@
-# 🏝️ Smart AI Resume Analyzer 🏝️
+# 🏝️ SmartAI Pro 🏝️
 
 **Your Intelligent Career Partner**
 
-Smart AI Resume Analyzer is an all‑in‑one platform to analyzer, optimize, and craft resumes that stand out, helping you move closer to your next opportunity.
+SmartAI Pro is an all‑in‑one platform to analyzer, optimize, and craft resumes that stand out, helping you move closer to your next opportunity.
 
 </div>
 
 ---
-## 🚀 **Smart AI Resume Analyzer – Version Comparison**  
+## 🚀 **SmartAI Pro – Version Comparison**  
 
 | Version | Status | Features | Try Now |
 |---------|--------|----------|---------|
@@ -15,7 +15,7 @@ Smart AI Resume Analyzer is an all‑in‑one platform to analyzer, optimize, an
 
 
 💬 **Join the discussion and share your thoughts, issues, and suggestions here:**  
-🔗 **[🗨️ Feedback & Discussion – Smart AI Resume Analyzer (Version 2.0)](https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer/)**  
+🔗 **[🗨️ Feedback & Discussion – SmartAI Pro (Version 2.0)](https://github.com/Ayushsingh299/SmartAI-Pro/)**  
 ## 📊 **GitHub Stats**
 
 <div align="center">
@@ -35,24 +35,24 @@ Smart AI Resume Analyzer is an all‑in‑one platform to analyzer, optimize, an
      </thead>
     <tbody>
          <tr>
-            <td><img alt="Stars" src="https://img.shields.io/github/stars/Ayushsingh299/Smart-AI-Resume-Analyzer?style=flat&logo=github"/></td>
-            <td><img alt="Forks" src="https://img.shields.io/github/forks/Ayushsingh299/Smart-AI-Resume-Analyzer?style=flat&logo=github"/></td>
-            <td><img alt="Issues" src="https://img.shields.io/github/issues/Ayushsingh299/Smart-AI-Resume-Analyzer?style=flat&logo=github"/></td>
-            <td><img alt="Repo Size" src="https://img.shields.io/github/repo-size/Ayushsingh299/Smart-AI-Resume-Analyzer?style=flat&logo=github"/></td>
-            <td><img alt="Open PRs" src="https://img.shields.io/github/issues-pr/Ayushsingh299/Smart-AI-Resume-Analyzer?style=flat&logo=github"/></td>
-            <td><img alt="Closed PRs" src="https://img.shields.io/github/issues-pr-closed/Ayushsingh299/Smart-AI-Resume-Analyzer?style=flat&color=critical&logo=github"/></td>
-            <td><img alt="Contributors" src="https://img.shields.io/github/contributors/Ayushsingh299/Smart-AI-Resume-Analyzer?style=flat&logo=github"/></td>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Ayushsingh299/SmartAI-Pro?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/Ayushsingh299/SmartAI-Pro?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/Ayushsingh299/SmartAI-Pro?style=flat&logo=github"/></td>
+            <td><img alt="Repo Size" src="https://img.shields.io/github/repo-size/Ayushsingh299/SmartAI-Pro?style=flat&logo=github"/></td>
+            <td><img alt="Open PRs" src="https://img.shields.io/github/issues-pr/Ayushsingh299/SmartAI-Pro?style=flat&logo=github"/></td>
+            <td><img alt="Closed PRs" src="https://img.shields.io/github/issues-pr-closed/Ayushsingh299/SmartAI-Pro?style=flat&color=critical&logo=github"/></td>
+            <td><img alt="Contributors" src="https://img.shields.io/github/contributors/Ayushsingh299/SmartAI-Pro?style=flat&logo=github"/></td>
             <td><img src="https://badges.frapsoft.com/os/v2/open-source.svg?v=103" alt="open source"/></td>
         </tr>
     </tbody>
 </table>
 
   <h4>
-    <a href="https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/">View Demo</a>
+    <a href="https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/">View Demo</a>
     <span> · </span>
     <a href="#-setup-in-minutes">Set-Up (Installation)</a>
     <span> · </span>
-    <a href="mailto:tabarakmukhtar7@gmail.com?subject=I%20Want%20The%20Project%20Report%20of%20Smart%20AI-RESUME-ANALYZER%20(2024%20 %2025)&body=Here%20Are%20My%20Details%20%F0%9F%98%89%0D%0A%0D%0AOrganization%2FCollege%20Name%3A%20%0D%0A%0D%0AFull%20Name%3A%20%0D%0A%0D%0AGitHub%20Profile%20%3A%20%0D%0A%0D%0AFrom%20where%20did%20you%20get%20to%20know%20about%20this%20project%3A%0D%0A%0D%0APurpose%20of%20asking%20project%20report%20(describe)%3A%0D%0A%0D%0A%0D%0AIf%20the%20above%20information%20satisfy%20your%20identity%20you%20will%20get%20the%20report%20to%20your%20email.">Project Report</a>
+    
   </h4>
   <p>
     <small align="justify">
@@ -75,7 +75,7 @@ Modern hiring pipelines rely heavily on **Applicant Tracking Systems (ATS)** to 
 
 ### ✅ Solution
 
-**Smart AI Resume Analyzer** closes this gap by delivering:
+**SmartAI Pro** closes this gap by delivering:
 
 - ATS‑style scoring  
 - Keyword and skills gap analysis  
@@ -90,19 +90,19 @@ So your resume moves from “filtered out” to “shortlisted.”
 ![WhatsApp Image 2026-02-13 at 13 59 27](https://github.com/user-attachments/assets/1eb279d8-39f2-4817-8acd-acfc377ad36e)
 
 ## <img src="https://github.com/user-attachments/assets/e5ac1371-6ac4-48b6-b95c-5ef9afaf1353" width="30"> **Live Demo**  
-👨‍💻 Try it Now: [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)  
+👨‍💻 Try it Now: [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)  
 ### SCAN QR(USER FRIENDLY):
 
-<img width="450" height="450" alt="qrcode_smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x streamlit app" src="https://github.com/user-attachments/assets/bdf16174-d4c3-49c2-b8d6-9bc2f7620196" />
+<img width="450" height="450" alt="qrcode_SmartAI-Pro-vgtg2p7gspqqhappmappv6x streamlit app" src="https://github.com/user-attachments/assets/bdf16174-d4c3-49c2-b8d6-9bc2f7620196" />
 
 
 ---
 
 ## 🔗 Helpful Links
 
-- **Live App:** https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/   
-- **Issue Tracker:** https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer/issues  
-- **Pull Requests:** https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer/pulls  
+- **Live App:** https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/   
+- **Issue Tracker:** https://github.com/Ayushsingh299/SmartAI-Pro/issues  
+- **Pull Requests:** https://github.com/Ayushsingh299/SmartAI-Pro/pulls  
 
 ---
   
@@ -221,11 +221,11 @@ Get real-time feedback, boost your resume's impact, and maximize your chances of
    - Export your resume in **PDF** format, ready for submission.  This project has evolved with significant enhancements to its resume analysis capabilities:
 
 ## 🏷 **Versioning & Updates**
-We continuously improve **Smart AI Resume Analyzer** to provide better resume analysis. Check out our latest features!
+We continuously improve **SmartAI Pro** to provide better resume analysis. Check out our latest features!
 
 #### 🔹 **Version 1.0 - Standard Resume Analyzer** 🏁
 
-The **foundation** of Smart AI Resume Analyzer, featuring a custom-built **standard resume analysis algorithm** developed by the project [creator](https://github.com/Ayushsingh299).  
+The **foundation** of SmartAI Pro, featuring a custom-built **standard resume analysis algorithm** developed by the project [creator](https://github.com/Ayushsingh299).  
 
 - **🚀 Basic Resume Analysis Algorithm**  **(Developed In-House)** 
 - **📊 Keyword Matching & Role-based Analysis**  
@@ -233,16 +233,16 @@ The **foundation** of Smart AI Resume Analyzer, featuring a custom-built **stand
 - **📌 Basic Resume Insights (No AI)**  
 - **📥 Manual Job Search**  
 
-[![Version 1.0](https://img.shields.io/badge/Version-1.0-blue?style=for-the-badge&logo=python&logoColor=white)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)  
+[![Version 1.0](https://img.shields.io/badge/Version-1.0-blue?style=for-the-badge&logo=python&logoColor=white)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)  
 
 
 #### 🔹 **Version 2.0 - AI-Powered Resume Analyzer** 🤖✨ (Testing Phase) 
 
 The **next-gen** version, introducing **AI-powered resume analysis** for deeper insights and personalized recommendations.  
 
-<!-- [![AI Powered](https://img.shields.io/badge/AI%20Powered-Yes-brightgreen.svg)](https://github.com/Hunterdii/Smart-AI-Resume-Analyzer)  
-[![PDF Reporting](https://img.shields.io/badge/PDF%20Reports-Enabled-blueviolet?style=for-the-badge)](https://github.com/Hunterdii/Smart-AI-Resume-Analyzer)  
-[![LinkedIn Scraper](https://img.shields.io/badge/LinkedIn%20Scraper-Integrated-lightgrey?style=for-the-badge)](https://github.com/Hunterdii/Smart-AI-Resume-Analyzer)   -->
+<!-- [![AI Powered](https://img.shields.io/badge/AI%20Powered-Yes-brightgreen.svg)](https://github.com/Hunterdii/SmartAI-Pro)  
+[![PDF Reporting](https://img.shields.io/badge/PDF%20Reports-Enabled-blueviolet?style=for-the-badge)](https://github.com/Hunterdii/SmartAI-Pro)  
+[![LinkedIn Scraper](https://img.shields.io/badge/LinkedIn%20Scraper-Integrated-lightgrey?style=for-the-badge)](https://github.com/Hunterdii/SmartAI-Pro)   -->
 
 - **🧠 Integrated AI with Google Gemini Model** for in-depth resume analysis  
 - **📄 AI-Powered Resume Score with Detailed PDF Report**  
@@ -250,11 +250,11 @@ The **next-gen** version, introducing **AI-powered resume analysis** for deeper 
 - **🔎 Advanced Job Search with LinkedIn Scraper** (Customizable Number of Jobs)  
 - **📊 AI-enhanced ATS & Role Matching Algorithm**  
 
-[![Version 2.0](https://img.shields.io/badge/Version-2.0-purple?style=for-the-badge&logo=openai&logoColor=white)](https://smart-ai-resume-analyzer.streamlit.app/)
+[![Version 2.0](https://img.shields.io/badge/Version-2.0-purple?style=for-the-badge&logo=openai&logoColor=white)](https://SmartAI-Pro.streamlit.app/)
 
  ---
  
-🔥 **Stay tuned for more updates as we continue trying to enhance Smart AI Resume Analyzer!** 🚀
+🔥 **Stay tuned for more updates as we continue trying to enhance SmartAI Pro!** 🚀
 
 
 
@@ -264,15 +264,15 @@ Follow these steps to run Smart Resume AI:
 
 #### **Setup Instructions** 🛠️
 
-Follow the steps below to set up and run the **Smart AI Resume Analyzer** on your local machine.
+Follow the steps below to set up and run the **SmartAI Pro** on your local machine.
 
 1. **Clone the repository:**
 
 Open a terminal and run:
 
    ```bash
-   git clone https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer
-   cd Smart-AI-Resume-Analyzer
+   git clone https://github.com/Ayushsingh299/SmartAI-Pro
+   cd SmartAI-Pro
    ```
 
 2. **2. Create a Virtual Environment**
@@ -347,7 +347,7 @@ admin123
 ## Known Bug 🚨 Autofill Glitch in Resume Builder!  
 
 ### What's Happening? 🤔  
-If you're using the **Browser's (e.g., Chrome, Edge, etc.) Autofill** feature to quickly fill out your **Name**, **Email**, and **Phone** details in our **Smart AI Resume Analyzer**, you might encounter this error in generating Resume:  
+If you're using the **Browser's (e.g., Chrome, Edge, etc.) Autofill** feature to quickly fill out your **Name**, **Email**, and **Phone** details in our **SmartAI Pro**, you might encounter this error in generating Resume:  
 **"⚠️ Please enter your email address."**  
 
 Even though the email field appears to be filled, this is a small bug in the **Resume Builder Feature** where our system doesn't always recognize inputs from autofill.
@@ -411,11 +411,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>
    
-   [🏠 HOME](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🏠 HOME](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>
    
-   [🔍 RESUME ANALYZER(Below Example Analysis of Backend Deeveloper)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🔍 RESUME ANALYZER(Below Example Analysis of Backend Deeveloper)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
 </b></td>  
 </tr>  
 <tr>  
@@ -425,11 +425,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>
    
-   [🔍 RESUME ANALYZER(Score And Recommendations)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🔍 RESUME ANALYZER(Score And Recommendations)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>
    
-   [🔍 RESUME ANALYZER(According To Roles Recommendations)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🔍 RESUME ANALYZER(According To Roles Recommendations)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 </tr>  
 <tr>  
@@ -440,11 +440,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>
    
-   [🔍 RESUME ANALYZER(According To Roles Course Recommendations)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🔍 RESUME ANALYZER(According To Roles Course Recommendations)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>
    
-   [🔍 RESUME ANALYZER(Videos Recommendations)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🔍 RESUME ANALYZER(Videos Recommendations)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 </tr>  
 <tr>  
@@ -458,7 +458,7 @@ Join the mission! Here's how:
 </b></td>  
 <td align="center"><b>
    
-   [📊 DASHBOARD](https://smart-ai-resume-analyzer.streamlit.app/)
+   [📊 DASHBOARD](https://SmartAI-Pro.streamlit.app/)
 </b></td>  
 </tr>  
 <tr>  
@@ -468,11 +468,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>
    
-   [🎯 JOB SEARCH](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🎯 JOB SEARCH](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>
    
-   [🎯 JOB SEARCH(📊 Job Market Insights & 🏢 Featured Companies)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🎯 JOB SEARCH(📊 Job Market Insights & 🏢 Featured Companies)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 </tr>  
 <tr>  
@@ -482,11 +482,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>
    
-   [💬 FEEDBACK](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [💬 FEEDBACK](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>
    
-   [ℹ️ ABOUT](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [ℹ️ ABOUT](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 </tr>  
 <tr>  
@@ -505,11 +505,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>  
    
-   [🔍 AI Resume Analysis (Custom Job Description)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🔍 AI Resume Analysis (Custom Job Description)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>  
    
-   [📊 AI Resume Score & Statistics](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [📊 AI Resume Score & Statistics](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
 </b></td>  
 </tr>  
 
@@ -521,11 +521,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>  
    
-   [📄 AI-Generated PDF Resume Report](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [📄 AI-Generated PDF Resume Report](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>  
    
-   [📊 AI Resume Analysis Insights](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [📊 AI Resume Analysis Insights](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 </tr>  
 
@@ -537,11 +537,11 @@ Join the mission! Here's how:
 <tr>  
 <td align="center"><b>  
    
-   [🔗 LinkedIn Job Scraper (Search Results)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🔗 LinkedIn Job Scraper (Search Results)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 <td align="center"><b>  
    
-   [🏢 LinkedIn Scraper (Job Listings UI)](https://smart-ai-resume-analyzer-vgtg2p7gspqqhappmappv6x.streamlit.app/)
+   [🏢 LinkedIn Scraper (Job Listings UI)](https://SmartAI-Pro-vgtg2p7gspqqhappmappv6x.streamlit.app/)
    </b></td>  
 </tr>  
 
@@ -568,12 +568,12 @@ Join the mission! Here's how:
 
 ## 📄 **License**  
 
-This project is licensed under the [MIT License](https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer/blob/main/LICENSE).  
+This project is licensed under the [MIT License](https://github.com/Ayushsingh299/SmartAI-Pro/blob/main/LICENSE).  
 
 
 ## 🌟 **GitHub Repo**  
 
-Explore the code, contribute, or drop a <img src="https://github.com/user-attachments/assets/35f6838c-52f5-4e48-8a98-c5203f8c57e3" style="width:20px; color: #FFD700" alt="Star GIF"> : [Smart Resume AI Repository](https://github.com/Ayushsingh299/Smart-AI-Resume-Analyzer)  
+Explore the code, contribute, or drop a <img src="https://github.com/user-attachments/assets/35f6838c-52f5-4e48-8a98-c5203f8c57e3" style="width:20px; color: #FFD700" alt="Star GIF"> : [Smart Resume AI Repository](https://github.com/Ayushsingh299/SmartAI-Pro)  
 
 ## 🛡️ Maintainer  
 
