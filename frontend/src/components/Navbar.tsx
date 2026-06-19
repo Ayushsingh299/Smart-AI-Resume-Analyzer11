@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Briefcase, User, Menu, X, LogOut, FileText,
-  CheckSquare, Award, Star, BrainCircuit, Home,
+  Hexagon, Award, Star, BrainCircuit, Home,
   LayoutDashboard, Compass, ChevronRight
 } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const NAV_LINKS = [
   { href: '/',               label: 'Home',        icon: Home },
@@ -58,7 +59,7 @@ export default function Navbar() {
     <>
       <nav className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 shadow-lg shadow-slate-950/50'
+          ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800/80 shadow-lg shadow-slate-200/50 dark:shadow-slate-950/50'
           : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-4 sm:px-6">
@@ -67,10 +68,10 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-[0_0_12px_rgba(16,185,129,0.4)] group-hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] transition-all">
-                <CheckSquare className="w-4.5 h-4.5 text-white" />
+                <Hexagon className="w-4.5 h-4.5 text-white" />
               </div>
-              <span className="text-base font-bold text-slate-100 hidden sm:block">
-                Smart<span className="text-emerald-400">AI</span>
+              <span className="text-base font-bold text-slate-900 dark:text-slate-100 hidden sm:block">
+                Nexus<span className="text-emerald-500 dark:text-emerald-400">ATS</span>
               </span>
             </Link>
 
@@ -82,8 +83,8 @@ export default function Navbar() {
                   href={href}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(href)
-                      ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                      ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   {label}
@@ -97,7 +98,7 @@ export default function Navbar() {
                 <>
                   <Link
                     href="/profile"
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/60 border border-slate-700 hover:border-emerald-500/40 text-slate-300 hover:text-emerald-300 text-sm font-medium transition-all"
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 hover:border-emerald-500/40 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-300 text-sm font-medium transition-all"
                   >
                     <div className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-[10px] font-bold text-white">
                       {username.charAt(0).toUpperCase()}
@@ -123,19 +124,27 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Theme Toggle */}
+            <div className="hidden lg:flex items-center">
+              <ThemeToggle />
+            </div>
+
             {/* Mobile menu button */}
-            <button
-              className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all cursor-pointer"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                className="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl">
+          <div className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
             <div className="container mx-auto px-4 py-4 space-y-1">
               {NAV_LINKS.map(({ href, label, icon: Icon }) => (
                 <Link
@@ -144,8 +153,8 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     isActive(href)
-                      ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                      : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                      ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
                   }`}
                 >
                   <Icon className="w-4 h-4" />

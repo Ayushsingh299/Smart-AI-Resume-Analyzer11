@@ -290,7 +290,8 @@ export default function ExamSessionPage() {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        await fetch('/api/exams/submit', {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+        await fetch(`${apiUrl}/api/exams/submit`, {
           method: 'POST',
           headers: { 
             'Authorization': `Bearer ${token}`,

@@ -51,7 +51,8 @@ export default function DashboardPage() {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const userRes = await fetch('/api/auth/me', {
+          const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+          const userRes = await fetch(`${apiUrl}/api/auth/me`, {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           let targetJob = 'Software Engineer';
@@ -63,7 +64,7 @@ export default function DashboardPage() {
             setUsername(localStorage.getItem('userName') || 'User');
           }
 
-          const historyRes = await fetch('/api/exams/history', {
+          const historyRes = await fetch(`${apiUrl}/api/exams/history`, {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           if (historyRes.ok) {

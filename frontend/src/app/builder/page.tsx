@@ -79,7 +79,7 @@ export default function Builder() {
     };
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
       const response = await fetch(`${apiUrl}/api/ai/generate-pdf`, {
         method: 'POST',
         headers: {

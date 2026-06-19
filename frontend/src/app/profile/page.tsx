@@ -37,7 +37,8 @@ export default function ProfilePage() {
       if (!token) return;
 
       try {
-        const userRes = await fetch('/api/auth/me', {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+        const userRes = await fetch(`${apiUrl}/api/auth/me`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (userRes.ok) {
@@ -51,7 +52,7 @@ export default function ProfilePage() {
           });
         }
 
-        const historyRes = await fetch('/api/exams/history', {
+        const historyRes = await fetch(`${apiUrl}/api/exams/history`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (historyRes.ok) {
@@ -86,7 +87,8 @@ export default function ProfilePage() {
     if (!token) return;
 
     try {
-      const res = await fetch('/api/users/profile', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+      const res = await fetch(`${apiUrl}/api/users/profile`, {
         method: 'PUT',
         headers: { 
           'Authorization': `Bearer ${token}`,

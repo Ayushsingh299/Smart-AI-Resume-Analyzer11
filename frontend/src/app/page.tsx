@@ -38,10 +38,10 @@ function StatCard({ value, suffix, label, icon: Icon, color, started }: {
       <div className={`w-12 h-12 rounded-xl ${color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
         <Icon className="w-6 h-6" />
       </div>
-      <div className="text-3xl font-extrabold text-slate-100 tabular-nums">
+      <div className="text-3xl font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">
         {started ? count.toLocaleString() : '0'}{suffix}
       </div>
-      <div className="text-sm text-slate-400 mt-1 font-medium">{label}</div>
+      <div className="text-sm text-slate-600 dark:text-slate-400 mt-1 font-medium">{label}</div>
     </div>
   );
 }
@@ -129,7 +129,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex flex-col">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col">
       {/* Background Gradients */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[-15%] left-[-5%] w-[50%] h-[50%] bg-emerald-600/10 rounded-full blur-[130px]" />
@@ -147,12 +147,12 @@ export default function Home() {
         </div>
 
         <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight mb-6 animate-fade-in-up">
-          <span className="gradient-text">Smart AI</span>
+          <span className="gradient-text">NexusATS</span>
           <br />
-          <span className="text-slate-100">Resume Analyzer</span>
+          <span className="text-slate-800 dark:text-slate-100">Elevate Your Career</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl leading-relaxed animate-fade-in-up delay-200">
+        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-2xl leading-relaxed animate-fade-in-up delay-200">
           Your all-in-one career platform. Analyze resumes with AI, prove your skills in live exam panels, follow curated learning paths, and land more interviews.
         </p>
 
@@ -185,7 +185,7 @@ export default function Home() {
             <Link
               key={href}
               href={href}
-              className="px-5 py-2 rounded-xl glass text-slate-300 hover:text-emerald-300 text-sm font-medium transition-all hover:border-emerald-500/30"
+              className="px-5 py-2 rounded-xl glass text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-300 text-sm font-medium transition-all hover:border-emerald-500/30"
             >
               {label}
             </Link>
@@ -205,23 +205,23 @@ export default function Home() {
       {/* ─── How It Works ──────────────────────────────────────────────────── */}
       <section className="container mx-auto px-6 py-16">
         <div className="text-center mb-12">
-          <span className="text-xs font-bold tracking-widest text-emerald-400 uppercase">The Process</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold mt-2 text-slate-100">How It Works</h2>
-          <p className="text-slate-400 mt-3 max-w-xl mx-auto">From resume upload to job offer — our platform guides every step.</p>
+          <span className="text-xs font-bold tracking-widest text-emerald-500 dark:text-emerald-400 uppercase">The Process</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold mt-2 text-slate-900 dark:text-slate-100">How It Works</h2>
+          <p className="text-slate-600 dark:text-slate-400 mt-3 max-w-xl mx-auto">From resume upload to job offer — our platform guides every step.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {HOW_IT_WORKS.map((step, idx) => (
-            <div key={step.step} className="relative glass rounded-2xl p-6 group hover:border-slate-700 transition-all duration-300">
+            <div key={step.step} className="relative glass rounded-2xl p-6 group hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300">
               {idx < HOW_IT_WORKS.length - 1 && (
-                <div className="hidden lg:block absolute top-10 right-[-1.5rem] w-6 h-0.5 bg-slate-800 z-10" />
+                <div className="hidden lg:block absolute top-10 right-[-1.5rem] w-6 h-0.5 bg-slate-200 dark:bg-slate-800 z-10" />
               )}
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-5xl font-black text-slate-800 leading-none font-mono select-none">{step.step}</span>
+                <span className="text-5xl font-black text-slate-200 dark:text-slate-800 leading-none font-mono select-none">{step.step}</span>
                 <step.icon className={`w-7 h-7 ${step.color}`} />
               </div>
-              <h3 className="text-base font-bold text-slate-200 mb-2">{step.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
+              <h3 className="text-base font-bold text-slate-800 dark:text-slate-200 mb-2">{step.title}</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -230,9 +230,9 @@ export default function Home() {
       {/* ─── Features Grid ─────────────────────────────────────────────────── */}
       <section className="container mx-auto px-6 py-16">
         <div className="text-center mb-12">
-          <span className="text-xs font-bold tracking-widest text-cyan-400 uppercase">What's Inside</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold mt-2 text-slate-100">Everything You Need</h2>
-          <p className="text-slate-400 mt-3 max-w-xl mx-auto">Six powerful tools, one unified platform.</p>
+          <span className="text-xs font-bold tracking-widest text-cyan-600 dark:text-cyan-400 uppercase">What's Inside</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold mt-2 text-slate-900 dark:text-slate-100">Everything You Need</h2>
+          <p className="text-slate-600 dark:text-slate-400 mt-3 max-w-xl mx-auto">Six powerful tools, one unified platform.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -240,14 +240,14 @@ export default function Home() {
             <Link
               key={f.title}
               href={f.href}
-              className="glass rounded-2xl p-6 group hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              className="glass rounded-2xl p-6 group hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col"
             >
               <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 ${f.color} group-hover:scale-110 transition-transform`}>
                 <f.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-slate-200 mb-2">{f.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed flex-1">{f.desc}</p>
-              <div className="flex items-center gap-1.5 mt-4 text-sm font-semibold text-emerald-400 group-hover:gap-2.5 transition-all">
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-2">{f.title}</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">{f.desc}</p>
+              <div className="flex items-center gap-1.5 mt-4 text-sm font-semibold text-emerald-600 dark:text-emerald-400 group-hover:gap-2.5 transition-all">
                 {f.cta} <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </Link>
@@ -257,13 +257,13 @@ export default function Home() {
 
       {/* ─── CTA Banner ────────────────────────────────────────────────────── */}
       <section className="container mx-auto px-6 py-16">
-        <div className="glass rounded-3xl p-10 md:p-14 text-center relative overflow-hidden border-slate-800">
+        <div className="glass rounded-3xl p-10 md:p-14 text-center relative overflow-hidden border-slate-200 dark:border-slate-800">
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5 pointer-events-none" />
-          <Award className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-100 mb-4">
+          <Award className="w-12 h-12 text-emerald-500 dark:text-emerald-400 mx-auto mb-4" />
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-slate-100 mb-4">
             Ready to Accelerate Your Career?
           </h2>
-          <p className="text-slate-400 max-w-lg mx-auto mb-8">
+          <p className="text-slate-600 dark:text-slate-400 max-w-lg mx-auto mb-8">
             Start with a free resume analysis — no sign-up required. Upgrade to the full career ecosystem in minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -285,10 +285,10 @@ export default function Home() {
       </section>
 
       {/* ─── Footer ────────────────────────────────────────────────────────── */}
-      <footer className="border-t border-slate-800/60 mt-4">
+      <footer className="border-t border-slate-200 dark:border-slate-800/60 mt-4">
         <div className="container mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="text-sm text-slate-500">
-            © 2025 Smart AI Resume Analyzer. Built with ❤️ using Next.js & FastAPI.
+            © 2026 NexusATS. Built with ❤️ using Next.js & FastAPI.
           </span>
           <div className="flex gap-6 text-sm text-slate-500">
             {[
