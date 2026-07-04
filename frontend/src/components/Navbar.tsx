@@ -29,11 +29,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    if (user) {
-      const parsed = JSON.parse(user);
+    const token = localStorage.getItem('token');
+    const name = localStorage.getItem('userName');
+    if (token) {
       setIsLoggedIn(true);
-      setUsername(parsed.name || parsed.email?.split('@')[0] || 'User');
+      setUsername(name || 'User');
+    } else {
+      setIsLoggedIn(false);
+      setUsername('');
     }
   }, [pathname]);
 
@@ -44,10 +47,15 @@ export default function Navbar() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
     setIsLoggedIn(false);
     setUsername('');
     setIsOpen(false);
+    window.dispatchEvent(new Event('storage'));
+    window.location.href = '/login';
   };
 
   const isActive = (href: string) => {

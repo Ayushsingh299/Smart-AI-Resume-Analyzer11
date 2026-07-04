@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm
 from database import get_db
 from models import User
-from schemas import UserCreate, UserResponse, Token
+from schemas import UserCreate, UserResponse, Token, GoogleLoginRequest
 from auth_utils import get_password_hash, verify_password, create_access_token
 from deps import get_current_user
 from datetime import timedelta
@@ -36,6 +36,26 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
             detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
+    
+    access_token_expires = timedelta(days=7)
+    access_token = create_access_token(
+        data={"sub": user.email}, expires_delta=access_token_expires
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
+
+@router.post("/google", response_model=Token)
+def google_login(request: GoogleLoginRequest, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == request.email).first()
+    if not user:
+        hashed_password = get_password_hash("google-oauth-placeholder-password")
+        user = User(
+            email=request.email,
+            hashed_password=hashed_password,
+            full_name=request.full_name
+        )
+        db.add(user)
+        db.commit()
+        db.refresh(user)
     
     access_token_expires = timedelta(days=7)
     access_token = create_access_token(

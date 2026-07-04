@@ -7,10 +7,6 @@ pydantic-settings
 python-multipart
 python-jose[cryptography]
 passlib[bcrypt]
-spacy
-nltk
-scikit-learn
-langchain
 faiss-cpu
 google-generativeai
 python-dotenv

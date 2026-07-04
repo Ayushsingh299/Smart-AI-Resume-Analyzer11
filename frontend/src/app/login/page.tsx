@@ -265,20 +265,40 @@ export default function LoginPage() {
             </span>
           </div>
 
-          {/* Social sign in (Fake) */}
+          {/* Social sign in (Real Mock Google login) */}
           <button
-            onClick={() => {
+            type="button"
+            disabled={loading}
+            onClick={async () => {
               setLoading(true);
-              setTimeout(() => {
-                setLoading(false);
+              setError('');
+              try {
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+                const res = await fetch(`${apiUrl}/api/auth/google`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    email: 'google.user@gmail.com',
+                    full_name: 'Google User'
+                  })
+                });
+                if (!res.ok) {
+                  throw new Error('Google authentication failed');
+                }
+                const data = await res.json();
+                localStorage.setItem('token', data.access_token);
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('userEmail', 'google.user@gmail.com');
                 localStorage.setItem('userName', 'Google User');
                 window.dispatchEvent(new Event('storage'));
                 router.push('/');
-              }, 1000);
+              } catch (err: any) {
+                setError(err.message);
+              } finally {
+                setLoading(false);
+              }
             }}
-            className="w-full py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24">
               <path
