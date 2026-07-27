@@ -187,7 +187,19 @@ export default function LoginPage() {
               <div className="flex justify-between items-center">
                 <label className="text-xs font-semibold text-slate-600 dark:text-slate-400">Password</label>
                 {activeTab === 'login' && (
-                  <button type="button" className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline">
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      if (!email) {
+                        setError('Please enter your email address to reset your password.');
+                        setSuccess('');
+                      } else {
+                        setSuccess('Password reset link sent to your email.');
+                        setError('');
+                      }
+                    }}
+                    className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline"
+                  >
                     Forgot password?
                   </button>
                 )}
