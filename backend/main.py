@@ -15,8 +15,12 @@ app = FastAPI(
 # Configure CORS for Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins
-    allow_credentials=False,
+    allow_origins=[
+        "http://localhost:3000", 
+        "https://smart-ai-resume-analyzer11.vercel.app",
+        "https://smart-ai-resume-analyzer.vercel.app"
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )

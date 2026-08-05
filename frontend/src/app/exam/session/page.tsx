@@ -293,10 +293,8 @@ export default function ExamSessionPage() {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
         await fetch(`${apiUrl}/api/exams/submit`, {
           method: 'POST',
-          headers: { 
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
           body: JSON.stringify({
             score: totalMarksReceived,
             total_questions: totalMaxMarks,

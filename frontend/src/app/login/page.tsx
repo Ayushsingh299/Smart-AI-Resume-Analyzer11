@@ -68,12 +68,35 @@ export default function LoginPage() {
 
       const data = await res.json();
       
-      if (activeTab === 'login') {
+      if (activeTab === 'signup') {
+        // Automatically log in after registration
+        const loginRes = await fetch(`${apiUrl}/api/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ username: email, password: password }).toString()
+        });
+        
+        if (!loginRes.ok) {
+          throw new Error('Registration successful, but auto-login failed. Please sign in manually.');
+        }
+        
+        const loginData = await loginRes.json();
+        localStorage.setItem('token', loginData.access_token);
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userEmail', data.email);
+        localStorage.setItem('userName', data.full_name);
+        
+        setSuccess('Account registered and logged in successfully!');
+        window.dispatchEvent(new Event('storage'));
+        setTimeout(() => {
+          router.push('/');
+        }, 1000);
+      } else {
         localStorage.setItem('token', data.access_token);
         localStorage.setItem('isLoggedIn', 'true');
         
         const userRes = await fetch(`${apiUrl}/api/auth/me`, {
-          headers: { 'Authorization': `Bearer ${data.access_token}` }
+          credentials: 'include'
         });
         if (userRes.ok) {
           const userData = await userRes.json();
@@ -86,9 +109,6 @@ export default function LoginPage() {
         setTimeout(() => {
           router.push('/');
         }, 1000);
-      } else {
-        setSuccess('Account registered successfully! Please sign in.');
-        setActiveTab('login');
       }
     } catch (err: any) {
       setError(err.message);
@@ -189,13 +209,30 @@ export default function LoginPage() {
                 {activeTab === 'login' && (
                   <button 
                     type="button"
-                    onClick={() => {
+                    onClick={async () => {
                       if (!email) {
                         setError('Please enter your email address to reset your password.');
                         setSuccess('');
                       } else {
-                        setSuccess('Password reset link sent to your email.');
-                        setError('');
+                        try {
+                          const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+                          const res = await fetch(`${apiUrl}/api/auth/forgot-password`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email })
+                          });
+                          const data = await res.json();
+                          if (res.ok) {
+                            setSuccess(data.message || 'Password reset link sent to your email.');
+                            setError('');
+                          } else {
+                            setError(data.detail || 'Failed to send reset link.');
+                            setSuccess('');
+                          }
+                        } catch (err) {
+                          setError('Failed to connect to the server.');
+                          setSuccess('');
+                        }
                       }
                     }}
                     className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline"
@@ -289,6 +326,7 @@ export default function LoginPage() {
                 const res = await fetch(`${apiUrl}/api/auth/google`, {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
+                  credentials: 'include',
                   body: JSON.stringify({
                     email: 'google.user@gmail.com',
                     full_name: 'Google User'
@@ -300,8 +338,16 @@ export default function LoginPage() {
                 const data = await res.json();
                 localStorage.setItem('token', data.access_token);
                 localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userEmail', 'google.user@gmail.com');
-                localStorage.setItem('userName', 'Google User');
+                
+                const userRes = await fetch(`${apiUrl}/api/auth/me`, {
+                  credentials: 'include'
+                });
+                if (userRes.ok) {
+                  const userData = await userRes.json();
+                  localStorage.setItem('userEmail', userData.email);
+                  localStorage.setItem('userName', userData.full_name);
+                }
+                
                 window.dispatchEvent(new Event('storage'));
                 router.push('/');
               } catch (err: any) {

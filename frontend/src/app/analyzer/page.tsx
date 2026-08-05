@@ -33,6 +33,7 @@ export default function Analyzer() {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
       const response = await fetch(`${apiUrl}/api/ai/upload-and-score`, {
         method: 'POST',
+        credentials: 'include',
         body: formData,
       });
       

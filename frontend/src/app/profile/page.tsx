@@ -39,7 +39,7 @@ export default function ProfilePage() {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
         const userRes = await fetch(`${apiUrl}/api/auth/me`, {
-          headers: { 'Authorization': `Bearer ${token}` }
+          credentials: 'include'
         });
         if (userRes.ok) {
           const u = await userRes.json();
@@ -53,7 +53,7 @@ export default function ProfilePage() {
         }
 
         const historyRes = await fetch(`${apiUrl}/api/exams/history`, {
-          headers: { 'Authorization': `Bearer ${token}` }
+          credentials: 'include'
         });
         if (historyRes.ok) {
           const arr = await historyRes.json();
