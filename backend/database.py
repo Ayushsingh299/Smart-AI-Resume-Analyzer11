@@ -7,7 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # We use PostgreSQL for production, fallback to sqlite for dev if not provided
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./backend_app.db")
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
+if not SQLALCHEMY_DATABASE_URL:
+    SQLALCHEMY_DATABASE_URL = "sqlite:///./backend_app.db"
 
 # Fix for Render's default postgres:// URL scheme which is unsupported in newer SQLAlchemy versions
 if SQLALCHEMY_DATABASE_URL and SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
