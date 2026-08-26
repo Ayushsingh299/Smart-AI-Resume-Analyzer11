@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Lock, Mail, User, Eye, EyeOff, Shield, ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { useGoogleLogin } from '@react-oauth/google';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -21,6 +22,50 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      setLoading(true);
+      setError('');
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
+        const res = await fetch(`${apiUrl}/api/auth/google`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({
+            token: tokenResponse.access_token
+          })
+        });
+        
+        if (!res.ok) {
+          throw new Error('Google authentication failed');
+        }
+        const data = await res.json();
+        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        const userRes = await fetch(`${apiUrl}/api/auth/me`, {
+          credentials: 'include'
+        });
+        if (userRes.ok) {
+          const userData = await userRes.json();
+          localStorage.setItem('userEmail', userData.email);
+          localStorage.setItem('userName', userData.full_name);
+        }
+        
+        window.dispatchEvent(new Event('storage'));
+        router.push('/');
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    },
+    onError: () => {
+      setError('Google Login Failed');
+    }
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -314,48 +359,11 @@ export default function LoginPage() {
             </span>
           </div>
 
-          {/* Social sign in (Real Mock Google login) */}
+          {/* Social sign in */}
           <button
             type="button"
             disabled={loading}
-            onClick={async () => {
-              setLoading(true);
-              setError('');
-              try {
-                const apiUrl = process.env.NEXT_PUBLIC_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000');
-                const res = await fetch(`${apiUrl}/api/auth/google`, {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  credentials: 'include',
-                  body: JSON.stringify({
-                    email: 'google.user@gmail.com',
-                    full_name: 'Google User'
-                  })
-                });
-                if (!res.ok) {
-                  throw new Error('Google authentication failed');
-                }
-                const data = await res.json();
-                localStorage.setItem('token', data.access_token);
-                localStorage.setItem('isLoggedIn', 'true');
-                
-                const userRes = await fetch(`${apiUrl}/api/auth/me`, {
-                  credentials: 'include'
-                });
-                if (userRes.ok) {
-                  const userData = await userRes.json();
-                  localStorage.setItem('userEmail', userData.email);
-                  localStorage.setItem('userName', userData.full_name);
-                }
-                
-                window.dispatchEvent(new Event('storage'));
-                router.push('/');
-              } catch (err: any) {
-                setError(err.message);
-              } finally {
-                setLoading(false);
-              }
-            }}
+            onClick={() => googleLogin()}
             className="w-full py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-semibold text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24">

@@ -14,3 +14,6 @@ PyPDF2
 python-docx
 reportlab
 email-validator
+google-auth
+google-auth-oauthlib
+google-auth-httplib2

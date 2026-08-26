@@ -7,6 +7,9 @@ from schemas import UserCreate, UserResponse, Token, GoogleLoginRequest, ForgotP
 from auth_utils import get_password_hash, verify_password, create_access_token
 from deps import get_current_user
 from datetime import timedelta
+from google.oauth2 import id_token
+from google.auth.transport import requests as google_requests
+import os
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -52,13 +55,34 @@ def login(response: Response, form_data: OAuth2PasswordRequestForm = Depends(), 
 
 @router.post("/google", response_model=Token)
 def google_login(response: Response, request: GoogleLoginRequest, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.email == request.email).first()
+    try:
+        # Fetch user info using the access_token provided by the frontend
+        userinfo_response = google_requests.Request()(
+            method="GET",
+            url=f"https://www.googleapis.com/oauth2/v3/userinfo?access_token={request.token}"
+        )
+        if userinfo_response.status != 200:
+            raise ValueError("Invalid access token")
+            
+        import json
+        idinfo = json.loads(userinfo_response.data.decode('utf-8'))
+        email = idinfo.get('email')
+        if not email:
+            raise ValueError("Email not found in Google response")
+        full_name = idinfo.get('name', 'Google User')
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid Google token",
+        )
+
+    user = db.query(User).filter(User.email == email).first()
     if not user:
         hashed_password = get_password_hash("google-oauth-placeholder-password")
         user = User(
-            email=request.email,
+            email=email,
             hashed_password=hashed_password,
-            full_name=request.full_name
+            full_name=full_name
         )
         db.add(user)
         db.commit()

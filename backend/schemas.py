@@ -12,8 +12,7 @@ class UserLogin(BaseModel):
     password: str
 
 class GoogleLoginRequest(BaseModel):
-    email: EmailStr
-    full_name: str
+    token: str
 
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr
