@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # We use PostgreSQL for production, fallback to sqlite for dev if not provided
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "").strip().strip('"').strip("'")
 if not SQLALCHEMY_DATABASE_URL:
     SQLALCHEMY_DATABASE_URL = "sqlite:///./backend_app.db"
 
