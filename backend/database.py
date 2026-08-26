@@ -15,11 +15,22 @@ if not SQLALCHEMY_DATABASE_URL:
 if SQLALCHEMY_DATABASE_URL and SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
     SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, 
-    # check_same_thread is needed only for SQLite
-    connect_args={"check_same_thread": False} if "sqlite" in SQLALCHEMY_DATABASE_URL else {}
-)
+try:
+    engine = create_engine(
+        SQLALCHEMY_DATABASE_URL, 
+        # check_same_thread is needed only for SQLite
+        connect_args={"check_same_thread": False} if "sqlite" in SQLALCHEMY_DATABASE_URL else {}
+    )
+    # Attempt to connect to verify it's valid
+    engine.connect()
+except Exception as e:
+    print(f"Warning: Failed to connect to DATABASE_URL: {e}. Falling back to SQLite.")
+    SQLALCHEMY_DATABASE_URL = "sqlite:///./backend_app.db"
+    engine = create_engine(
+        SQLALCHEMY_DATABASE_URL, 
+        connect_args={"check_same_thread": False}
+    )
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
